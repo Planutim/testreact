@@ -1,5 +1,45 @@
 .Panel{
     width: 30vw;
     height: 100vh;
-    
+    font-size: 1.5em;
+    overflow: hidden;
+}
+.list-item{
+    width: 100%;
+    list-style-type: none;
+    border: 1px solid grey;
+    border-radius: 20px;
+    margin: 5px;
+    margin-left: -30px;
+}
+.list-item h3{
+    position: relative;
+    text-align: center;
+    text-transform: capitalize;
+}
+.list-item span{
+
+}
+.panel-icon{
+    position: absolute;
+    right: 20px;
+    top: 2px;
+
+}
+.panel-icon:hover{
+    opacity: 0.5;
+    transition: all 0.5s;
+    transform: scale(1.5);
+}
+
+label{
+
+}
+input{
+    width: 45%;
+    height: 20px;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 1em;
+
 }

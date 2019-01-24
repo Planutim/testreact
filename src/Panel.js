@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './Panel.css'
+import {FaTimesCircle} from 'react-icons/fa'
 class Panel extends Component{
     state = {
       input: '',
@@ -32,6 +33,7 @@ class Panel extends Component{
     onDragStart(e){
       var liElem = e.target;
       var index = this.getIndex(liElem)
+      // e.dataTransfer.dropEffect='none'
       e.dataTransfer.setData('text/plain',index)
       console.log(e.dataTransfer.getData('text/plain'))
     }
@@ -60,9 +62,11 @@ class Panel extends Component{
     render(){
         return (
             <div className="Panel">
+              <label for='point'>Enter new point:</label>
               <input 
                 className='point' 
                 type='text' 
+                id='point'
                 onChange={this.handleChange.bind(this)}
                 onKeyPress={this.handleKeyPress.bind(this)}/>
               {/* <p>{this.state.input}</p> */}
@@ -86,15 +90,17 @@ class Panel extends Component{
 }
 
 const Point = (props)=>(
-  <li 
+  <li className='list-item'
     draggable={true}
     onDragStart={props.onDragStart}
     onDragOver={props.onDragOver}
     onDragEnter={props.onDragEnter}
     onDrop={props.onDrop}
     >
-    <h3>{props.title}
-      <span className={"closeX indexNo"+props.index} onClick={props.onClose}> Click me</span>
+    <h3><span>{props.title}</span>
+      {/* <span className={"closeX indexNo"+props.index} onClick={props.onClose}></span> */}
+      <FaTimesCircle className='panel-icon'
+      onClick={props.onClose}/>
     </h3>
   </li>
 )

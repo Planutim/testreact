@@ -7,7 +7,11 @@ const mapStyles = {
     width: '100%',
     height: '100%'
 }
-
+const icons = {
+  startIcon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+  endIcon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+  standartIcon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+}
 
 class MapContainer extends Component{
     constructor(props){
@@ -70,6 +74,7 @@ class MapContainer extends Component{
             {this.props.points.map((point,i)=>
               <Marker key={i}
                 className={'markerNo'+point.index}
+                icon={i==0?icons.startIcon:i==(this.props.points.length-1)?icons.endIcon:icons.standartIcon}
                 label={point.title}
                 draggable={true}
                 onDragend={this.onMarkerDrag.bind(this)}
