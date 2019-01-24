@@ -78,7 +78,6 @@ class MapContainer extends Component{
             style={mapStyles}
             initialCenter={this.state.center}
             onReady={this.updateCenter.bind(this)}
-            onClick={this.getPoints.bind(this)}
             >
             {this.props.points.map((point,i)=>
               <Marker key={i}
@@ -89,11 +88,10 @@ class MapContainer extends Component{
                 />
               )}
               <Polyline
-              // path={this.props.points.map(a=>a.position)}
-              path = {this.getPoints.bind(this)()}
-              strokeColor={'#00f'}
-              strokeOpacity={1}
-              strokeWeight={2}/>
+                path={this.props.points.map(a=>a.position)}              
+                strokeColor={'#00f'}
+                strokeOpacity={1}
+                strokeWeight={2}/>
             </Map>
         )
     }
