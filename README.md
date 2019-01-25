@@ -1,4 +1,6 @@
 ## Инструкции по запуску
+  Put api key at the end of the Map.js file
+  
   ```
     npm install
     npm start
