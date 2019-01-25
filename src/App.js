@@ -11,7 +11,7 @@ class App extends Component{
         center: {}
     }
     componentDidUpdate(){
-      console.log(JSON.stringify(this.state.points.map(a=>a.title)))
+      // console.log(JSON.stringify(this.state.points.map(a=>a.title)))
     }
 
     addPoint(title){

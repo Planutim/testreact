@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './Panel.css'
-import {FaTimesCircle} from 'react-icons/fa'
+import {FaTimes} from 'react-icons/fa'
 class Panel extends Component{
     state = {
       input: '',
@@ -33,7 +33,7 @@ class Panel extends Component{
     onDragStart(e){
       var liElem = e.target;
       var index = this.getIndex(liElem)
-      // e.dataTransfer.dropEffect='none'
+      e.dataTransfer.dropEffect='none'
       e.dataTransfer.setData('text/plain',index)
       console.log(e.dataTransfer.getData('text/plain'))
     }
@@ -62,7 +62,7 @@ class Panel extends Component{
     render(){
         return (
             <div className="Panel">
-              <label for='point'>Enter new point:</label>
+              <label className='input-label' htmlFor='point'>Новая точка маршрута:</label>
               <input 
                 className='point' 
                 type='text' 
@@ -83,7 +83,7 @@ class Panel extends Component{
                   />
                   )}
               </ul>
-              <button onClick={this.shuffle.bind(this)}>SHUFFLE</button>
+              <button className='shuffle-button' onClick={this.shuffle.bind(this)}>SHUFFLE</button>
             </div>
         )
     }
@@ -97,9 +97,9 @@ const Point = (props)=>(
     onDragEnter={props.onDragEnter}
     onDrop={props.onDrop}
     >
-    <h3><span>{props.title}</span>
+    <h3><span>{props.title.substring(0,15)}</span>
       {/* <span className={"closeX indexNo"+props.index} onClick={props.onClose}></span> */}
-      <FaTimesCircle className='panel-icon'
+      <FaTimes className='panel-icon'
       onClick={props.onClose}/>
     </h3>
   </li>

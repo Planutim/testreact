@@ -1,8 +1,9 @@
 .Panel{
     width: 30vw;
     height: 100vh;
-    font-size: 1.5em;
+    font-size: 1.2em;
     overflow: hidden;
+    text-align: center;
 }
 .list-item{
     width: 100%;
@@ -11,14 +12,26 @@
     border-radius: 20px;
     margin: 5px;
     margin-left: -30px;
+    background-color: hsl(190,50%,50%);
 }
+.list-item:first-child{
+    background-color: hsl(130, 50%, 50%);
+}
+.list-item:last-child{
+    background-color: hsl(0, 50%,50%);
+}
+
 .list-item h3{
     position: relative;
     text-align: center;
     text-transform: capitalize;
+    font-weight: 600;
 }
 .list-item span{
 
+}
+.input-label{
+    display: block;
 }
 .panel-icon{
     position: absolute;
@@ -42,4 +55,20 @@ input{
     padding-left: 20px;
     font-size: 1em;
 
+}
+.shuffle-button{
+    font-family: inherit;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: inherit;
+}
+
+@media (max-width: 900px){
+    .Panel{
+        width: 40vw;
+    }
+    .list-item h3{
+        
+        font-size: 0.7em;
+    }
 }

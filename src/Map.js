@@ -39,8 +39,8 @@ class MapContainer extends Component{
     }
     onMarkerDrag(props, marker,coords){
 
-      var index = props.className.slice(8)
-      console.log('index is '+index)
+      var index =parseInt( props.markerNo);
+      console.log('index is '+index+ '   '+Object.keys(props))
       index = parseInt(index,10)
       this.props.updatePosition(index, {
         lat: coords.latLng.lat(),
@@ -48,12 +48,12 @@ class MapContainer extends Component{
       })
 
       // [props,marker,coords].map(a=>console.log(Object.keys(a)))
-      var i=0
+      // var i=0
       // while(arguments[i]){
       //   console.log(arguments[i])
       //   i++
       // }
-      console.log(this.props.points.map(a=>a.position))
+      // console.log(this.props.points.map(a=>a.position))
     }
     updateCenter(){
       this.props.updateCenter(this.state.center)
@@ -73,9 +73,11 @@ class MapContainer extends Component{
             >
             {this.props.points.map((point,i)=>
               <Marker key={i}
-                className={'markerNo'+point.index}
+                // className={'markerNo'+point.index}
+                markerNo={i}
                 icon={i==0?icons.startIcon:i==(this.props.points.length-1)?icons.endIcon:icons.standartIcon}
-                label={point.title}
+                position={point.position}
+                title={point.title}
                 draggable={true}
                 onDragend={this.onMarkerDrag.bind(this)}
                 onClick={this.onMarkerClick.bind(this)}
