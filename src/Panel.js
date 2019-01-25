@@ -11,6 +11,9 @@ class Panel extends Component{
       })
     }
     handleKeyPress(e){
+      if(document.querySelector('#input').value === ''){
+        return;
+      }
       if(e.key === 'Enter'){
         this.props.addPoint(this.state.input)
         this.setState({
@@ -63,13 +66,14 @@ class Panel extends Component{
         return (
             <div className="Panel">
               <label className='input-label' htmlFor='point'>Новая точка маршрута:</label>
+              
               <input 
                 className='point' 
                 type='text' 
-                id='point'
+                id='input'
                 onChange={this.handleChange.bind(this)}
                 onKeyPress={this.handleKeyPress.bind(this)}/>
-              {/* <p>{this.state.input}</p> */}
+              <button className='shuffle-button' onClick={this.shuffle.bind(this)}>SHUFFLE</button>
               <ul>
                 {this.props.points.map((point,index)=>
                   <Point title={point.title}
@@ -83,7 +87,7 @@ class Panel extends Component{
                   />
                   )}
               </ul>
-              <button className='shuffle-button' onClick={this.shuffle.bind(this)}>SHUFFLE</button>
+              
             </div>
         )
     }

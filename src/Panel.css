@@ -54,9 +54,14 @@ input{
     border-radius: 5px;
     padding-left: 20px;
     font-size: 1em;
-
+    text-align: center;
+    font-family: inherit;
+    color: #666666;
 }
 .shuffle-button{
+    display: block;
+    margin: auto;
+    margin-top: 5px;
     font-family: inherit;
     border-radius: 5px;
     padding: 3px;
